@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة تطبيق - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="myFunctions.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="home.html">home</a></li>
+                <li><a href="AboutUs.html">AboutUs</a></li>
+                <li><a href="apps.html">apps</a></li>
+                <li><a href="add_app.html">add_app</a></li>
+            </ul>
+        </nav>
+
+        <h1>Add a new application</h1>
+
+        <div class="info-box">
+            <p style="text-align: center; font-size: 1.1em;">
+                أملأ الحقول بالمعلومات التفصيلية مراعيا الحقل الذي يجب أن لا يترك فارغا
+            </p>
+        </div>
+
+        <form onsubmit="return validateForm()">
+            <div>
+                <label for="appName">Application name *</label>
+                <input type="text" id="appName" name="appName" placeholder="مثال: ChatGPT" required>
+                <div id="appNameError" class="error"></div>
+                <p style="font-size: 0.9em; color: #666;">* يجب أن يحتوي على أحرف إنجليزية فقط بدون فراغات أو أرقام</p>
+            </div>
+
+            <div>
+                <label for="companyName"> Manufacturer *</label>
+                <input type="text" id="companyName" name="companyName" placeholder="مثال: OpenAI" required>
+                <div id="companyNameError" class="error"></div>
+                <p style="font-size: 0.9em; color: #666;">* يجب أن يحتوي على أحرف إنجليزية وأرقام فقط</p>
+            </div>
+
+            <div>
+                <label for="website">Website *</label>
+                <input type="url" id="website" name="website" placeholder="https://example.com" required>
+                <div id="websiteError" class="error"></div>
+                <p style="font-size: 0.9em; color: #666;">* يجب أن يبدأ بـ http:// أو https://</p>
+            </div>
+
+            <div>
+                <label for="logo">Logo image link (optional)</label>
+                <input type="url" id="logo" name="logo" placeholder="https://example.com/logo.png">
+                <p style="font-size: 0.9em; color: #666;">* إذا لم يتم إدخال رابط، سيتم توليد صورة تلقائية باسم التطبيق</p>
+            </div>
+
+            <div>
+                <label>Free or not *</label>
+                <div class="radio-group">
+                    <label style="display: inline; font-weight: normal;">
+                        <input type="radio" name="isFree" value="yes">  لا
+                    </label>
+                    <label style="display: inline; font-weight: normal;">
+                        <input type="radio" name="isFree" value="no"> نعم
+                    </label>
+                </div>
+                <div id="isFreeError" class="error"></div>
+            </div>
+
+            <div>
+                <label for="category">USS *</label>
+                <select id="category" name="category" required>
+                    <option value="">-- اختر مجال الاستخدام --</option>
+                    <option value="E-Commerce">التجارة الإلكترونية</option>
+                    <option value="Education">التعليم</option>
+                    <option value="Robotics">الروبوتات</option>
+                    <option value="Healthcare">الرعاية الصحية</option>
+                    <option value="Finance">المالية</option>
+                    <option value="Entertainment">الترفيه</option>
+                    <option value="Art">الفن والتصميم</option>
+                    <option value="Programming">البرمجة</option>
+                    <option value="Marketing">التسويق</option>
+                    <option value="Security">الأمن السيبراني</option>
+                    <option value="Transportation">النقل</option>
+                    <option value="Agriculture">الزراعة</option>
+                </select>
+                <div id="categoryError" class="error"></div>
+            </div>
+
+            <div>
+                <label for="description">Brief explanation of the application *</label>
+                <textarea id="description" name="description" placeholder="اكتب وصفاً مختصراً عن التطبيق ووظائفه الرئيسية..." required></textarea>
+                <div id="descriptionError" class="error"></div>
+                <p style="font-size: 0.9em; color: #666;">* يرجى كتابة شرح واضح ومفيد عن التطبيق</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #ddd;">
+                <input type="submit" value="Send">
+                <input type="reset" value="Return">
+            </div>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <h3 style="color: #667eea; margin-bottom: 15px;">Important notes:</h3>
+                <ul style="list-style-position: inside; line-height: 2;">
+                    <li>All fields marked with (*) are mandatory.</li>
+                    <li>You must ensure that the website link is valid.</li>
+                    <li>The information entered will be reviewed before submission.</li>
+                    <li>If there are errors, red alert messages will be displayed.</li>
+                    <li>After successful submission, you will be automatically redirected to the applications page.</li>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#appName').on('blur', function() {
+                if (!validateAppName(this.value) && this.value.length > 0) {
+                    $(this).addClass('invalid');
+                    $('#appNameError').show().text('اسم التطبيق يجب أن يحتوي على أحرف إنجليزية فقط بدون فراغات أو أرقام');
+                } else {
+                    $(this).removeClass('invalid');
+                    $('#appNameError').hide();
+                }
+            });
+
+            $('#companyName').on('blur', function() {
+                if (!validateCompanyName(this.value) && this.value.length > 0) {
+                    $(this).addClass('invalid');
+                    $('#companyNameError').show().text('اسم الشركة يجب أن يحتوي على أحرف إنجليزية وأرقام فقط');
+                } else {
+                    $(this).removeClass('invalid');
+                    $('#companyNameError').hide();
+                }
+            });
+
+            $('#website').on('blur', function() {
+                if (!validateURL(this.value) && this.value.length > 0) {
+                    $(this).addClass('invalid');
+                    $('#websiteError').show().text('يرجى إدخال رابط صحيح يبدأ بـ http:// أو https://');
+                } else {
+                    $(this).removeClass('invalid');
+                    $('#websiteError').hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

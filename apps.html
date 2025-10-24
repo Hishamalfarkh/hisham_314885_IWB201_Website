@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التطبيقات - تطبيقات الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="myFunctions.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="home.html">home</a></li>
+                <li><a href="AboutUs.html">AboutUs</a></li>
+                <li><a href="apps.html">apps</a></li>
+                <li><a href="add_app.html">add_app</a></li>
+            </ul>
+        </nav>
+
+        <h1>Artificial intelligence applications</h1>
+
+        <div class="info-box">
+            <p style="text-align: center; font-size: 1.1em;">
+                استكشف مجموعة متنوعة من تطبيقات الذكاء الاصطناعي في مختلف المجالات
+                اضغط على زر "عرض" لمشاهدة التفاصيل الكاملة لكل تطبيق ومعرفة كل ما هو جديد عن التحديثات المتاحة
+            </p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Application name</th>
+                    <th> Developing company</th>
+                    <th>USS</th>
+                    <th>Free</th>
+                    <th>Show details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- التطبيق الأول: ChatGPT -->
+                <tr>
+                    <td>ChatGPT</td>
+                    <td>OpenAI</td>
+                    <td>Education</td>
+                    <td>نعم</td>
+                    <td><button class="toggle-btn" onclick="toggleDetails(this)">▼ Show</button></td>
+                </tr>
+                <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="details-content">
+                            <h3>التفاصيل الإضافية</h3>
+                            <p><strong>عنوان الموقع الإلكتروني:</strong> <a href="https://chat.openai.com" target="_blank" class="link">https://chat.openai.com</a></p>
+                            <p><strong>شرح مختصر:</strong> ChatGPT هو نموذج لغة متقدم يستخدم الذكاء الاصطناعي للتحاور مع المستخدمين والإجابة على أسئلتهم في مختلف المجالات</p>
+                            <img src="https://via.placeholder.com/150/667eea/ffffff?text=ChatGPT" alt="ChatGPT Logo">
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- التطبيق الثاني: Midjourney -->
+                <tr>
+                    <td>Midjourney</td>
+                    <td>MidjourneyInc</td>
+                    <td>Art</td>
+                    <td>لا</td>
+                    <td><button class="toggle-btn" onclick="toggleDetails(this)">▼ Show</button></td>
+                </tr>
+                <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="details-content">
+                            <h3>التفاصيل الإضافية</h3>
+                            <p><strong>عنوان الموقع الإلكتروني:</strong> <a href="https://www.midjourney.com" target="_blank" class="link">https://www.midjourney.com</a></p>
+                            <p><strong>شرح مختصر:</strong> Midjourney هو أداة ذكاء اصطناعي لإنشاء الصور الفنية من النصوص، يستخدمه الفنانون والمصممون لإنتاج أعمال إبداعية فريدة</p>
+                            <img src="https://via.placeholder.com/150/764ba2/ffffff?text=Midjourney" alt="Midjourney Logo">
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- التطبيق الثالث: GitHub Copilot -->
+                <tr>
+                    <td>GitHubCopilot</td>
+                    <td>GitHub</td>
+                    <td>Programming</td>
+                    <td>لا</td>
+                    <td><button class="toggle-btn" onclick="toggleDetails(this)">▼ Show</button></td>
+                </tr>
+                <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="details-content">
+                            <h3>التفاصيل الإضافية</h3>
+                            <p><strong>عنوان الموقع الإلكتروني:</strong> <a href="https://github.com/features/copilot" target="_blank" class="link">https://github.com/features/copilot</a></p>
+                            <p><strong>شرح مختصر:</strong> GitHub Copilot هو مساعد برمجة ذكي يساعد المطورين على كتابة الأكواد بشكل أسرع من خلال اقتراحات تلقائية ذكية</p>
+                            <img src="https://via.placeholder.com/150/28a745/ffffff?text=Copilot" alt="GitHub Copilot Logo">
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- التطبيق الرابع: Grammarly -->
+                <tr>
+                    <td>Grammarly</td>
+                    <td>GrammarlyInc</td>
+                    <td>Education</td>
+                    <td>نعم</td>
+                    <td><button class="toggle-btn" onclick="toggleDetails(this)">▼ Show</button></td>
+                </tr>
+                <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="details-content">
+                            <h3>التفاصيل الإضافية</h3>
+                            <p><strong>عنوان الموقع الإلكتروني:</strong> <a href="https://www.grammarly.com" target="_blank" class="link">https://www.grammarly.com</a></p>
+                            <p><strong>شرح مختصر:</strong> Grammarly هو مساعد كتابة ذكي يستخدم الذكاء الاصطناعي لتصحيح الأخطاء الإملائية والنحوية وتحسين جودة النصوص</p>
+                            <img src="https://via.placeholder.com/150/15c39a/ffffff?text=Grammarly" alt="Grammarly Logo">
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- التطبيق الخامس: Tesla Autopilot -->
+                <tr>
+                    <td>TeslaAutopilot</td>
+                    <td>Tesla</td>
+                    <td>Robotics</td>
+                    <td>لا</td>
+                    <td><button class="toggle-btn" onclick="toggleDetails(this)">▼ Show</button></td>
+                </tr>
+                <tr class="details-row" style="display: none;">
+                    <td colspan="5">
+                        <div class="details-content">
+                            <h3>التفاصيل الإضافية</h3>
+                            <p><strong>عنوان الموقع الإلكتروني:</strong> <a href="https://www.tesla.com/autopilot" target="_blank" class="link">https://www.tesla.com/autopilot</a></p>
+                            <p><strong>شرح مختصر:</strong> Tesla Autopilot هو نظام قيادة ذاتية متقدم يستخدم الذكاء الاصطناعي للتحكم في السيارات الكهربائية بشكل آمن وفعال</p>
+                            <img src="https://via.placeholder.com/150/dc3545/ffffff?text=Tesla" alt="Tesla Autopilot Logo">
+                           
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- التطبيقات المضافة من قبل المستخدمين -->
+            </tbody>
+            <tbody id="appsTableBody">
+                <!-- التطبيقات المضافة من قبل المستخدمين ستظهر هنا -->
+            </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 40px; padding: 25px; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border-radius: 10px; color: white;">
+            <h3 style="font-size: 1.5em; margin-bottom: 15px;">لم تجد التطبيق الذي تبحث عنه؟</h3>
+            <p style="font-size: 1.1em;">انتقل إلى صفحة <a href="add_app.html" class="link" style="color: white; text-decoration: underline;">إضافة تطبيق</a> لإدخال تطبيق جديد.</p>
+        </div>
+    </div>
+</body>
+</html>
